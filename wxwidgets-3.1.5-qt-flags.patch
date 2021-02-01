@@ -1,0 +1,21 @@
+diff -up wxWidgets-master/wx-config.in.omv~ wxWidgets-master/wx-config.in
+--- wxWidgets-master/wx-config.in.omv~	2021-02-01 21:57:48.943719559 +0100
++++ wxWidgets-master/wx-config.in	2021-02-01 21:59:52.425939543 +0100
+@@ -1273,6 +1273,17 @@ if [ "$cxx_parameters" = "base" ]; then
+     using_gui=no
+ fi
+ 
++if echo @TOOLCHAIN_FULLNAME@ |grep -q qt; then
++	# We also need to add Qt's include directories so wxQt headers can
++	# #include Qt base classes...
++	# And we'll need to link to Qt libraries
++	_include_cppflags="$_include_cppflags `pkg-config --cflags Qt5Core Qt5Test`"
++	wx_libs="$wx_libs `pkg-config --libs Qt5Core Qt5Test`"
++	if [ "$using_gui" = "yes" ]; then
++		_include_cppflags="$_include_cppflags `pkg-config --cflags Qt5Widgets Qt5Gui Qt5OpenGL`"
++		wx_libs="$wx_libs -Wl,--as-needed `pkg-config --libs Qt5Widgets Qt5Gui Qt5OpenGL`"
++	fi
++fi
+ 
+ if [ -n "$WXDEBUG" ]; then
+     decho
