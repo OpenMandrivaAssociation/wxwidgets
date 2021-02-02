@@ -22,7 +22,7 @@
 Summary:        The Wx widgets library
 Name:           wxwidgets
 Version:        3.1.5
-Release:        %{?gitdate:0.%{gitdate}.}1
+Release:        %{?gitdate:0.%{gitdate}.}2
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
@@ -95,9 +95,10 @@ wxWidgets is a free C++ library for cross-platform GUI development.
 With wxWidgets, you can create applications for different GUIs (Qt, GTK,
 Motif/LessTif, MS Windows, Mac) from the same source code.
 
-%global wxlibs wx_baseu \\\
+%global baselibs wx_baseu \\\
 wx_baseu_net \\\
 wx_baseu_xml
+%global wxlibs %{baselibs}
 
 %if %{with gtk}
 %global gtklibs \\\
@@ -180,6 +181,7 @@ done)}
 %package -n %{dev}
 Summary:	Core (not widget dependent) Development files for wxWidgets
 Group:		Development/C++
+Requires:	%{expand:%(for lib in %{baselibs}; do echo -n "%%{libname$lib} = %{EVRD} "; done)}
 
 %description -n %{dev}
 Core (not widget dependent) Development files for wxWidgets
