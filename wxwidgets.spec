@@ -38,6 +38,7 @@ Patch4:		wxwidgets-3.1.5-qt-flags.patch
 
 #BuildRequires:  bakefile
 BuildRequires:  pkgconfig(libjpeg)
+BuildRequires:	jbig-devel
 BuildRequires:  pkgconfig(libtiff-4)
 BuildRequires:  pkgconfig(expat)
 BuildRequires:  pkgconfig(cppunit)
@@ -61,6 +62,9 @@ BuildRequires:	wine-devel
 %endif
 %if %{with motif}
 BuildRequires:	motif-devel
+BuildRequires:	pkgconfig(xp)
+BuildRequires:	pkgconfig(sm)
+BuildRequires:	pkgconfig(ice)
 %endif
 BuildRequires:  pkgconfig(libmspack)
 BuildRequires:  pkgconfig(libnotify) >= 0.7
@@ -78,6 +82,7 @@ BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(gio-2.0)
 BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(libcurl)
+BuildRequires:	pkgconfig(liblzma)
 Provides:	wxwidgets%{api} = %{EVRD}
 %rename		wxgtk3.1
 %rename		wxqt3.1
