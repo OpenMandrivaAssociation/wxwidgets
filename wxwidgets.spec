@@ -62,9 +62,12 @@ BuildRequires:	wine-devel
 %endif
 %if %{with motif}
 BuildRequires:	motif-devel
-BuildRequires:	pkgconfig(xp)
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	pkgconfig(ice)
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xmu)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xt)
 %endif
 BuildRequires:  pkgconfig(libmspack)
 BuildRequires:  pkgconfig(libnotify) >= 0.7
