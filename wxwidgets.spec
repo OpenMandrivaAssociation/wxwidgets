@@ -17,7 +17,7 @@
 %define gtkdev	%mklibname wxgtku %{api} -d
 %define motifdev	%mklibname wxmotifu %{api} -d
 
-%define gitdate 20210201
+%define gitdate 20210307
 
 Summary:        The Wx widgets library
 Name:           wxwidgets
