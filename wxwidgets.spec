@@ -17,12 +17,12 @@
 %define gtkdev	%mklibname wxgtku %{api} -d
 %define motifdev	%mklibname wxmotifu %{api} -d
 
-%define gitdate 20210201
+%define gitdate 20210314
 
 Summary:        The Wx widgets library
 Name:           wxwidgets
 Version:        3.1.5
-Release:        %{?gitdate:0.%{gitdate}.}2
+Release:        %{?gitdate:0.%{gitdate}.}1
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
@@ -596,7 +596,7 @@ find %{buildroot} -name "wxmsw.mo" -delete
 
 ln -s wx-config-%{api} %{buildroot}%{_bindir}/wx-config
 
-%find_lang wxstd%{apind}
+%find_lang wxstd-%{api}
 
 %post -n %{dev}
 ln -sf %{_bindir}/wxrc-%{api} %{_bindir}/wxrc
@@ -634,7 +634,7 @@ if [ "$1" -eq "0" ]; then
 	rm -f %{_bindir}/wx-config
 fi
 
-%files -f wxstd%{apind}.lang
+%files -f wxstd-%{api}.lang
 %doc README.md
 
 %files -n %{dev}
