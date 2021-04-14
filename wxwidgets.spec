@@ -17,16 +17,16 @@
 %define gtkdev	%mklibname wxgtku %{api} -d
 %define motifdev	%mklibname wxmotifu %{api} -d
 
-%define gitdate 20210314
+%define gitdate %{nil}
 
 Summary:        The Wx widgets library
 Name:           wxwidgets
 Version:        3.1.5
-Release:        %{?gitdate:0.%{gitdate}.}1
+Release:        1
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
-Source0:        https://github.com/wxWidgets/wxWidgets/archive/%{?gitdate:master}%{!?gitdate:%{version}}/%{oname}-%{version}.tar.gz
+Source0:        https://github.com/wxWidgets/wxWidgets/releases/download/v%{version}/wxWidgets-%{version}.tar.bz2
 Source1:	https://github.com/wxWidgets/Catch/archive/ee4acb6ae6e32a02bc012d197aa82b1ca7a493ab/catch.tar.gz
 Patch0:         wxWidgets-2.9.5-fix-linking.patch
 Patch1:         wxWidgets-2.9.5-multiarch-includes.patch
@@ -241,7 +241,7 @@ Header files for the unicode enabled version of wxGTK, the GTK+ port of
 the wxWidgets library.
 
 %prep
-%setup -qn %{oname}-master
+%setup -qn %{oname}-%{version}
 rm -rf 3rdparty/catch
 cd 3rdparty
 tar xf %{S:1}
