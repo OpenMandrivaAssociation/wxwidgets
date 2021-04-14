@@ -241,7 +241,7 @@ Header files for the unicode enabled version of wxGTK, the GTK+ port of
 the wxWidgets library.
 
 %prep
-%setup -qn %{oname}-master
+%setup -qn %{oname}-%{version}
 rm -rf 3rdparty/catch
 cd 3rdparty
 tar xf %{S:1}
