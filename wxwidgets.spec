@@ -21,7 +21,7 @@
 
 Summary:        The Wx widgets library
 Name:           wxwidgets
-Version:        3.1.7
+Version:        3.2.0
 Release:        1
 License:        wxWidgets Library Licence
 Group:          System/Libraries
@@ -172,8 +172,8 @@ done)}
 %%files -n %%{libname$lib}
 %{_libdir}/lib$lib-%{api}.so.%{major}{,.*}
 %if "$lib" == "wx_gtk3u_webview"
-%dir %{_libdir}/wx/%{version}/web-extensions/
-%{_libdir}/wx/%{version}/web-extensions/webkit2_extu-%{version}.so
+%dir %{_libdir}/wx/%{api}/web-extensions/
+%{_libdir}/wx/%{api}/web-extensions/webkit2_extu-%{api}.so
 %endif
 EOF
 done)}
@@ -661,7 +661,7 @@ fi
 %{_libdir}/libwx_baseu_xml-%{api}.so
 %{_datadir}/bakefile/presets/wx*
 %{_datadir}/aclocal/wxwin%{apind}.m4
-%{_libdir}/wx/%{version}/sound_sdlu-%{version}.so
+%{_libdir}/wx/%{api}/sound_sdlu-%{api}.so
 
 %if %{with qt}
 %files -n %{qtdev}
