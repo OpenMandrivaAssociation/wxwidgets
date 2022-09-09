@@ -10,7 +10,7 @@
 %define oname	wxWidgets
 
 %define api	%(echo %{version} |cut -d. -f1-2)
-%define major	%(echo %{version} |cut -d. -f3)
+%define major	0
 %define apind	%(echo %{api} |tr -d .)
 %define dev	%mklibname wxu %{api} -d
 %define qtdev	%mklibname wxqtu %{api} -d
@@ -21,7 +21,7 @@
 
 Summary:        The Wx widgets library
 Name:           wxwidgets
-Version:        3.2.0
+Version:        3.2.1
 Release:        1
 License:        wxWidgets Library Licence
 Group:          System/Libraries
