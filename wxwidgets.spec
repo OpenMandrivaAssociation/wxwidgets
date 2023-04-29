@@ -22,7 +22,7 @@
 Summary:        The Wx widgets library
 Name:           wxwidgets
 Version:        3.2.2.1
-Release:        2
+Release:        3
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
