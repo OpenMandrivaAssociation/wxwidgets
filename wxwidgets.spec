@@ -22,7 +22,7 @@
 Summary:        The Wx widgets library
 Name:           wxwidgets
 Version:        3.2.2.1
-Release:        3
+Release:        4
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
@@ -642,7 +642,7 @@ fi
 %ghost %{_bindir}/wx-config
 %ghost %{_bindir}/wx-config-%{api}
 %ghost %{_bindir}/wxrc
-%ghost %{_bindir}/wxrc-%{api}
+%{_bindir}/wxrc-%{api}
 %{_includedir}/wx-%{api}/
 %if %{with qt}
 %exclude %{_includedir}/wx-%{api}/wx/qt
