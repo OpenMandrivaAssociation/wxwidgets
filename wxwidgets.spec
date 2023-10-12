@@ -21,8 +21,8 @@
 
 Summary:        The Wx widgets library
 Name:           wxwidgets
-Version:        3.2.2.1
-Release:        4
+Version:        3.2.3
+Release:        1
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
@@ -538,6 +538,8 @@ CC="%{__cc}" CXX="%{__cxx}" ../configure \
 	--with-motif
 cd ..
 %endif
+
+find . -name Makefile |xargs sed -i -e 's|--version-script|--undefined-version,--version-script|g'
 
 %build
 %if %{with gtk}
