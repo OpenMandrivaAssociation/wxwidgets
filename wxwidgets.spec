@@ -22,7 +22,7 @@
 Summary:        The Wx widgets library
 Name:           wxwidgets
 Version:        3.2.4
-Release:        1
+Release:        2
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
@@ -55,7 +55,7 @@ BuildRequires:	pkgconfig(Qt5Test)
 %endif
 %if %{with gtk}
 BuildRequires:  pkgconfig(gtk+-3.0)
-BuildRequires:  pkgconfig(webkit2gtk-4.0)
+BuildRequires:  pkgconfig(webkit2gtk-4.1)
 %endif
 %if %{with wine}
 BuildRequires:	wine-devel
