@@ -564,19 +564,19 @@ find . -name Makefile |xargs sed -i -e 's|--version-script|--undefined-version,-
 %make_build -C locale allmo
 
 #gw prepare samples
-pushd build-qt/demos
+pushd demos
         make clean
         rm -f makefile* demos.bkl
 popd
 
-pushd build-qt/samples
+pushd samples
         make clean
         rm -f makefile* samples.bkl
 popd
 
-find build-qt/demos build-qt/samples -name Makefile|xargs perl -pi -e 's^CXXC =.*^CXXC=\$(CXX) `wx-config --cflags`^'
-find build-qt/demos build-qt/samples -name Makefile|xargs perl -pi -e 's^EXTRALIBS =.*^EXTRALIBS=^'
-find build-qt/demos build-qt/samples -name Makefile|xargs perl -pi -e 's^SAMPLES_RPATH_FLAG =.*^SAMPLES_RPATH_FLAG=^'
+find demos samples -name Makefile|xargs perl -pi -e 's^CXXC =.*^CXXC=\$(CXX) `wx-config --cflags`^'
+find demos samples -name Makefile|xargs perl -pi -e 's^EXTRALIBS =.*^EXTRALIBS=^'
+find demos samples -name Makefile|xargs perl -pi -e 's^SAMPLES_RPATH_FLAG =.*^SAMPLES_RPATH_FLAG=^'
 
 %install
 %if %{with wine}
