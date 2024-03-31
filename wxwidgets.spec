@@ -37,6 +37,7 @@ Patch3:		wxGTK3-3.0.3-abicheck.patch
 Patch4:		wxwidgets-3.1.5-qt-flags.patch
 
 BuildRequires:	gettext
+BuildRequires:	which
 #BuildRequires:  bakefile
 BuildRequires:  pkgconfig(libjpeg)
 BuildRequires:	jbig-devel
