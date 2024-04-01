@@ -22,7 +22,7 @@
 Summary:        The Wx widgets library
 Name:           wxwidgets
 Version:        3.2.4
-Release:        2
+Release:        3
 License:        wxWidgets Library Licence
 Group:          System/Libraries
 URL:            http://www.wxwidgets.org/
@@ -34,7 +34,9 @@ Patch1:         wxWidgets-2.9.5-multiarch-includes.patch
 Patch2:         wxWidgets-3.0.4-collision.patch
 # From Fedora
 Patch3:		wxGTK3-3.0.3-abicheck.patch
+# OM
 Patch4:		wxwidgets-3.1.5-qt-flags.patch
+Patch5:		wxwidgets-3.2.4-fix-autoconf.patch
 
 BuildRequires:	gettext
 BuildRequires:	which
@@ -256,6 +258,8 @@ sed -i -e 's|/lib|/%{_lib}|' src/unix/stdpaths.cpp
 
 find samples demos -name .cvsignore -delete
 
+# Modern autoconf no longer sets $EGREP
+sed -i -e 's,\$EGREP,grep -E,g' configure.in
 aclocal --force -I$PWD/build/aclocal
 autoconf -f
 libtoolize --copy --force
@@ -565,13 +569,13 @@ find . -name Makefile |xargs sed -i -e 's|--version-script|--undefined-version,-
 
 #gw prepare samples
 pushd build-qt/demos
-        make clean
-        rm -f makefile* demos.bkl
+	make clean
+	rm -f makefile* demos.bkl
 popd
 
 pushd build-qt/samples
-        make clean
-        rm -f makefile* samples.bkl
+	make clean
+	rm -f makefile* samples.bkl
 popd
 
 find build-qt/demos build-qt/samples -name Makefile|xargs perl -pi -e 's^CXXC =.*^CXXC=\$(CXX) `wx-config --cflags`^'

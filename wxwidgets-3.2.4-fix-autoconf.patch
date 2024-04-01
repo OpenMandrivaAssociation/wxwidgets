@@ -1,0 +1,32 @@
+diff -up wxWidgets-3.2.4/configure.in.omv~ wxWidgets-3.2.4/configure.in
+--- wxWidgets-3.2.4/configure.in.omv~	2024-04-01 17:00:56.979021661 +0200
++++ wxWidgets-3.2.4/configure.in	2024-04-01 17:01:28.103366758 +0200
+@@ -6247,7 +6247,7 @@ AC_CHECK_FUNCS(gettimeofday ftime, break
+ 
+ if test "$ac_cv_func_gettimeofday" = "yes"; then
+     AC_CACHE_CHECK([whether gettimeofday takes two arguments],
+-                   wx_cv_func_gettimeofday_has_2_args,
++                   [wx_cv_func_gettimeofday_has_2_args],
+     [
+         dnl on some _really_ old systems it takes only 1 argument
+         AC_TRY_COMPILE(
+@@ -6259,8 +6259,8 @@ if test "$ac_cv_func_gettimeofday" = "ye
+                 struct timeval tv;
+                 gettimeofday(&tv, NULL);
+             ],
+-            wx_cv_func_gettimeofday_has_2_args=yes,
+-            AC_TRY_COMPILE(
++            [wx_cv_func_gettimeofday_has_2_args=yes],
++            [AC_TRY_COMPILE(
+                 [
+                     #include <sys/time.h>
+                     #include <unistd.h>
+@@ -6274,7 +6274,7 @@ if test "$ac_cv_func_gettimeofday" = "ye
+                     AC_MSG_WARN([failed to determine number of gettimeofday() arguments])
+                     wx_cv_func_gettimeofday_has_2_args=unknown
+                 ]
+-            )
++            )]
+         )
+     ])
+ 
