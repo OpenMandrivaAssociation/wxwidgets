@@ -38,6 +38,11 @@ Patch3:		wxGTK3-3.0.3-abicheck.patch
 Patch4:		wxwidgets-3.1.5-qt-flags.patch
 Patch5:		wxwidgets-3.2.4-fix-autoconf.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gettext
 BuildRequires:	which
 #BuildRequires:  bakefile
